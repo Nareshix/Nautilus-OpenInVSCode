@@ -55,7 +55,7 @@ class VSCodeNautilus(GObject.GObject, Nautilus.MenuProvider):
 	def _create_nautilus_item(self, file, location):
 		"""Creates the 'Open with VSCode' menu item."""
 		item = Nautilus.MenuItem(name="VSCodeNautilus::Nautilus"+location,
-		                         label=gettext("Open in Code"),
+		                         label=gettext("Open with VSCode"),
 		                         tip=gettext("Open this folder/file in VSCode"))
 		item.connect("activate", self._nautilus_run, file)
 		return item 

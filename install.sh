@@ -59,7 +59,7 @@ set_location() {
         echo "VSCodium is installed in /usr/bin/codium"
         sed -i "s|COMMAND_REPLACE|/usr/bin/codium|g" $TARGDIR/vscode-nautilus.py
         sed -i "s|INSTALL_PATH_REPLACE|/usr/bin/codium|g" $TARGDIR/vscode-nautilus.py
-        sed -i "s|Open in Code|Open in Codium|g" $TARGDIR/vscode-nautilus.py
+        sed -i "s|Open with VSCode|Open in Codium|g" $TARGDIR/vscode-nautilus.py
         sed -i "s|Open this folder/file in VSCode|Open this folder/file in VSCodium|g" $TARGDIR/vscode-nautilus.py
     
     # VSCodium installed with Snap
@@ -67,7 +67,7 @@ set_location() {
         echo "VSCodium is installed in /snap/bin/codium"
         sed -i "s|COMMAND_REPLACE|/snap/bin/codium|g" $TARGDIR/vscode-nautilus.py
         sed -i "s|INSTALL_PATH_REPLACE|/snap/bin/codium|g" $TARGDIR/vscode-nautilus.py
-        sed -i "s|Open in Code|Open in Codium|g" $TARGDIR/vscode-nautilus.py
+        sed -i "s|Open with VSCode|Open in Codium|g" $TARGDIR/vscode-nautilus.py
         sed -i "s|Open this folder/file in VSCode|Open this folder/file in VSCodium|g" $TARGDIR/vscode-nautilus.py
 
     # VSCodium installed with Flatpak
@@ -75,7 +75,7 @@ set_location() {
         echo "VSCodium is installed with Flatpak"
         sed -i "s|COMMAND_REPLACE|flatpak run com.vscodium.codium|g" $TARGDIR/vscode-nautilus.py
         sed -i "s|INSTALL_PATH_REPLACE|/var/lib/flatpak/app/com.vscodium.codium/current/active/files/bin/codium|g" $TARGDIR/vscode-nautilus.py
-        sed -i "s|Open in Code|Open in Codium|g" $TARGDIR/vscode-nautilus.py
+        sed -i "s|Open with VSCode|Open in Codium|g" $TARGDIR/vscode-nautilus.py
         sed -i "s|Open this folder/file in VSCode|Open this folder/file in VSCodium|g" $TARGDIR/vscode-nautilus.py
 
     # If none of the above, ask user to enter the path
@@ -84,7 +84,7 @@ set_location() {
         read -p "Please enter the path to VSCode/VSCodium : " VAR
         sed -i "s|/usr/bin/code|${VAR}|g" $TARGDIR/vscode-nautilus.py
         if [[ ${VAR} =~ "codium" ]]; then 
-            sed -i "s|Open in Code|Open in Codium|g" $TARGDIR/vscode-nautilus.py
+            sed -i "s|Open with VSCode|Open in Codium|g" $TARGDIR/vscode-nautilus.py
             sed -i "s|Open this folder/file in VSCode|Open this folder/file in VSCodium|g" $TARGDIR/vscode-nautilus.py
         fi;
     fi
